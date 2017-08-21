@@ -1,0 +1,41 @@
+https://www.slideshare.net/AliakseiZhynhiarousk/spring-framework-5-history-and-reactive-features-73219801
+
+http://www.baeldung.com/spring-5-functional-web
+
+https://github.com/sdeleuze/spring-reactive-playground/blob/master/src/main/java/playground/Application.java
+
+https://github.com/bclozel/spring-reactive-university/tree/master/src/main/java/com/example
+
+Reactive easy learn:
+https://github.com/reactor/lite-rx-api-hands-on
+
+Gems:
+https://github.com/reactor/reactive-streams-commons/issues/21
+
+Examples wo Controllers:
+https://spring.io/blog/2016/09/22/new-in-spring-5-functional-web-framework
+
+Security w tests:
+https://github.com/spring-projects/spring-security/tree/5.0.0.M2/samples/javaconfig/hellowebfluxfn/src/integration-test/java/sample
+
+http://www.scribdbook.com/spring-5-reactive-web/
+
+https://www.jfokus.se/jfokus17/preso/Spring-Framework-5--Themes-and-Trends.pdf
+
+https://ssouris.github.io/2017/05/21/springio-2017-thoughts.html
+
+https://github.com/reactor/reactor-core
+
+tomcat + netty example
+https://github.com/poutsma/web-function-sample/blob/master/src/main/java/org/springframework/samples/web/reactive/function/Server.java
+
+docs
+http://docs.spring.io/spring-framework/docs/5.0.0.BUILD-SNAPSHOT/spring-framework-reference/html/web-reactive.html
+
+
+
+PERFORMANCE
+https://github.com/dsyer/spring-boot-memory-blog
+https://spring.io/blog/2015/12/10/spring-boot-memory-performance
+https://alexecollins.com/spring-boot-performance/
+https://kielczewski.eu/2015/01/application-metrics-with-spring-boot-actuator/
