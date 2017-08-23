@@ -6,10 +6,16 @@ import com.coherentsolutions.spring5.repository.ReactiveRepository;
 import com.coherentsolutions.spring5.repository.ReactiveUserRepository;
 import org.junit.Test;
 import reactor.core.publisher.Flux;
+import reactor.core.publisher.Mono;
+import reactor.core.scheduler.Schedulers;
 import reactor.test.StepVerifier;
 
 import java.time.Duration;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
+import java.util.stream.Collectors;
 
 @SuppressWarnings("WeakerAccess")
 public class FluxTest {
@@ -130,6 +136,37 @@ public class FluxTest {
                     System.out.println("firstname lastname: " + userSignal.getFirstname() + " " + userSignal.getLastname());
                 })
                 .doOnComplete(() -> System.out.println("The end!"));
+    }
+
+    @Test
+    public void getValueTest() {
+        System.out.println(getValue(Mono.just("foo")));
+    }
+
+    String getValue(Mono<String> mono) {
+        return mono.block();
+    }
+
+    @Test
+    public void getValuesTest() {
+        System.out.println(getValues(Flux.just("foo", "bar")));
+    }
+
+    List<String> getValues(Flux<String> flux) {
+//        flux.toIterable()
+        return flux.toStream().collect(Collectors.toList());
+    }
+
+
+    Flux<String> asyncStringLookup(List<String> list) {
+        return Flux.defer(() -> Flux.fromIterable(list)) // path repository with data loading
+            .subscribeOn(Schedulers.elastic());
+    }
+
+    Mono<Void> asyncWriteStrings(Flux<String> flux) {
+        return flux.publishOn(Schedulers.parallel())
+            .doOnNext(System.out::println) // e.g. save to repository
+            .then();
     }
 
     // more samples and playground: https://github.com/reactor/lite-rx-api-hands-on
